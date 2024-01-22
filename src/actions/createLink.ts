@@ -39,7 +39,8 @@ export async function generateShortLink(_: any, formData: FormData) {
   revalidatePath('/my-links');
   const header = headers();
   const hostUrl = header.get('host');
-  const shortUrl = `${hostUrl}/${key}`;
+  const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+  const shortUrl = `${protocol}://${hostUrl}/${key}`;
   return {
     generatedShortLink: shortUrl,
     errors: null,

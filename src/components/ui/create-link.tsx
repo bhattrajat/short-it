@@ -38,7 +38,7 @@ export function CreateLink() {
                 href={state.generatedShortLink}
                 target="_blank"
               >
-                {state.generatedShortLink}{' '}
+                {state.generatedShortLink}
                 <ArrowTopRightOnSquareIcon className="w-4 ml-2 h-4" />
               </a>
             </p>
