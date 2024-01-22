@@ -14,7 +14,7 @@ export async function ShortenedLinks({ email }: { email: string }) {
   );
   const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
   return (
-    <section className="p-4 lg:max-w-xl mx-auto">
+    <section className="p-4 lg:w-1/2 mx-auto">
       <h2 className="text-2xl mb-4">Your shortened links</h2>
       {urls.length === 0 && <p>No short links generated</p>}
       <ul>
