@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/header';
-
+import { Toaster } from 'react-hot-toast';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -20,6 +20,7 @@ export default function RootLayout({
       <body className={`${inter.className} p-4 lg:p-8`}>
         <Header />
         {children}
+        <Toaster position="bottom-left" reverseOrder={false} />
       </body>
     </html>
   );

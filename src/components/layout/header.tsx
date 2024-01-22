@@ -13,11 +13,14 @@ export default async function Header() {
       </h1>
       <div className="flex items-center gap-4">
         <nav>
-          <ul className="flex items-center gap-4">
+          <ul className="flex flex-col lg:flex-row items-center gap-8">
             {session ? (
               <>
                 <li>
-                  <Link href="/dashboard">Dashboard</Link>
+                  <Link href="/links/create">Create Link</Link>
+                </li>
+                <li>
+                  <Link href="/my-links">My Links</Link>
                 </li>
                 <li>
                   <SignOut />
