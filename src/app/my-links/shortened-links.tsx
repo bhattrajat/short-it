@@ -1,4 +1,5 @@
 import { CopyButton } from '@/components/ui/copy-button';
+import { ArrowDownCircleIcon } from '@heroicons/react/24/outline';
 import { kv } from '@vercel/kv';
 import { headers } from 'next/headers';
 
@@ -23,30 +24,27 @@ export async function ShortenedLinks({ email }: { email: string }) {
           }`;
           return (
             <li
-              className="mb-4 border-black border-2 rounded p-4 flex gap-4 items-center justify-between"
+              className="mb-4 border-black border-2 rounded p-4 flex flex-col lg:flex-row gap-4 items-center justify-between"
               key={url.shortKey}
             >
-              <div className="flex flex-col">
-                <div>
-                  Shortened Link:
-                  <a
-                    className="border-black ml-4 text-lg border-b-2"
-                    target="_blank"
-                    href={shortUrl}
-                  >
-                    {shortUrl}
-                  </a>
+              <div className="flex basis-3/4 grow-0 flex-col gap-2">
+                <a
+                  className="underline ml-4 text-lg"
+                  target="_blank"
+                  href={shortUrl}
+                >
+                  {shortUrl}
+                </a>
+                <div className="flex justify-center">
+                  <ArrowDownCircleIcon className="w-6 h-6" />
                 </div>
-                <div>
-                  Redirects to:
-                  <a
-                    target="_blank"
-                    className="border-black ml-4 border-b-2"
-                    href={url.longUrl}
-                  >
-                    {url.longUrl}
-                  </a>
-                </div>
+                <a
+                  target="_blank"
+                  className="underline ml-4"
+                  href={url.longUrl}
+                >
+                  {url.longUrl}
+                </a>
               </div>
               <CopyButton copyText={shortUrl} />
             </li>
