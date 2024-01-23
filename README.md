@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# About Short It
 
-## Getting Started
+- It is a url shortener application like bitly & dub.sh.
+- Created using Next.js 14, React Server components and Server actions.
+- Uses Redis (Vercel KV) to store the urls. Since It is an in memory database it queries data much faster than Disk based databases.
+- Uses Next auth & github Oauth to implement authentication. It has also implemented protected routes so anonymous user can't access it.
+- It also uses Next.js dynamic routes & route handlers to implement the redirect logic 
 
-First, run the development server:
+## How it works
+- It requires authentication to generate shortened links
+- Once authenticated user can add links and behind the scene a server action is executed to generate a unique uuid using nanoid and stores the long url as key, value pairs.
+- It uses dynamic routes to redirect the shortened url to it's associated long url with HTTP 307 status code.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Hosted on vercel here [https://short-it-rajat.vercel.app/](https://short-it-rajat.vercel.app/)
